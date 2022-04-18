@@ -37,7 +37,7 @@ public abstract class AbstractMessagingChannel<T extends IConnection<? extends I
     public abstract void sendData(byte[] data) throws Exception;
 
     @Override @SuppressWarnings("UnstableApiUsage")
-    public void sendMessage(Message message) {
+    public void sendMessage(Message message) throws Exception {
         ByteArrayDataOutput output = ByteStreams.newDataOutput();
         try {
             output.write(message.getClass().getName().hashCode());
